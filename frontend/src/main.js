@@ -10,9 +10,8 @@ import * as bootstrap from 'bootstrap'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faUser, faMobileScreen } from '@fortawesome/free-solid-svg-icons'
-
-library.add(faUser, faMobileScreen)
-
+import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
+library.add(faUser, faMobileScreen, faInstagram, faFacebook)
 
 const app = createApp(App)
 
