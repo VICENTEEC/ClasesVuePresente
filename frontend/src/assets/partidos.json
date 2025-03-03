@@ -1,0 +1,326 @@
+{
+  "_embedded": {
+    "partidos": [
+      {
+        "idLocal": "NANTES(FRA)",
+        "idVisitante": "NANCY(FRA)",
+        "timestamp": 1588791729263,
+        "_links": {
+          "self": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/1"
+          },
+          "partido": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/1"
+          },
+          "sucesos": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/1/sucesos"
+          }
+        }
+      },
+      {
+        "idLocal": "ANGERS(FRA)",
+        "idVisitante": "EXCELS(HOL)",
+        "timestamp": 1588791730514,
+        "_links": {
+          "self": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/2"
+          },
+          "partido": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/2"
+          },
+          "sucesos": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/2/sucesos"
+          }
+        }
+      },
+      {
+        "idLocal": "DARMST(ALE)",
+        "idVisitante": "AJACIO(FRA)",
+        "timestamp": 1588791731555,
+        "_links": {
+          "self": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/3"
+          },
+          "partido": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/3"
+          },
+          "sucesos": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/3/sucesos"
+          }
+        }
+      },
+      {
+        "idLocal": "SPAULI(ALE)",
+        "idVisitante": "DARMST(ALE)",
+        "timestamp": 1588791732453,
+        "_links": {
+          "self": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/4"
+          },
+          "partido": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/4"
+          },
+          "sucesos": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/4/sucesos"
+          }
+        }
+      },
+      {
+        "idLocal": "BOLONA(ITA)",
+        "idVisitante": "GUIMAR(POR)",
+        "timestamp": 1588791733348,
+        "_links": {
+          "self": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/5"
+          },
+          "partido": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/5"
+          },
+          "sucesos": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/5/sucesos"
+          }
+        }
+      },
+      {
+        "idLocal": "OVIEDO(ESP)",
+        "idVisitante": "ATHCLU(ESP)",
+        "timestamp": 1588791734267,
+        "_links": {
+          "self": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/6"
+          },
+          "partido": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/6"
+          },
+          "sucesos": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/6/sucesos"
+          }
+        }
+      },
+      {
+        "idLocal": "UTRECH(HOL)",
+        "idVisitante": "NAPOLI(ITA)",
+        "timestamp": 1588791735261,
+        "_links": {
+          "self": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/7"
+          },
+          "partido": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/7"
+          },
+          "sucesos": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/7/sucesos"
+          }
+        }
+      },
+      {
+        "idLocal": "HUDFIL(ING)",
+        "idVisitante": "NEWCAS(ING)",
+        "timestamp": 1588791736283,
+        "_links": {
+          "self": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/8"
+          },
+          "partido": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/8"
+          },
+          "sucesos": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/8/sucesos"
+          }
+        }
+      },
+      {
+        "idLocal": "STALIE(BEL)",
+        "idVisitante": "DUSELD(ALE)",
+        "timestamp": 1588791737272,
+        "_links": {
+          "self": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/9"
+          },
+          "partido": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/9"
+          },
+          "sucesos": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/9/sucesos"
+          }
+        }
+      },
+      {
+        "idLocal": "CELTAV(ESP)",
+        "idVisitante": "AZALKM(HOL)",
+        "timestamp": 1588791738286,
+        "_links": {
+          "self": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/10"
+          },
+          "partido": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/10"
+          },
+          "sucesos": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/10/sucesos"
+          }
+        }
+      },
+      {
+        "idLocal": "AJAX(HOL)",
+        "idVisitante": "CADIZ(ESP)",
+        "timestamp": 1588791739278,
+        "_links": {
+          "self": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/11"
+          },
+          "partido": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/11"
+          },
+          "sucesos": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/11/sucesos"
+          }
+        }
+      },
+      {
+        "idLocal": "NASTIC(ESP)",
+        "idVisitante": "BURNLE(ING)",
+        "timestamp": 1588791740274,
+        "_links": {
+          "self": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/12"
+          },
+          "partido": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/12"
+          },
+          "sucesos": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/12/sucesos"
+          }
+        }
+      },
+      {
+        "idLocal": "CHELSE(ING)",
+        "idVisitante": "HOLKIE(ALE)",
+        "timestamp": 1588791741265,
+        "_links": {
+          "self": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/13"
+          },
+          "partido": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/13"
+          },
+          "sucesos": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/13/sucesos"
+          }
+        }
+      },
+      {
+        "idLocal": "BAYLEV(ALE)",
+        "idVisitante": "LEGANE(ESP)",
+        "timestamp": 1588791742272,
+        "_links": {
+          "self": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/14"
+          },
+          "partido": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/14"
+          },
+          "sucesos": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/14/sucesos"
+          }
+        }
+      },
+      {
+        "idLocal": "STALIE(BEL)",
+        "idVisitante": "HOFFEN(ALE)",
+        "timestamp": 1588791743207,
+        "_links": {
+          "self": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/15"
+          },
+          "partido": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/15"
+          },
+          "sucesos": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/15/sucesos"
+          }
+        }
+      },
+      {
+        "idLocal": "VALLAD(ESP)",
+        "idVisitante": "NIORT(FRA)",
+        "timestamp": 1588791744391,
+        "_links": {
+          "self": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/16"
+          },
+          "partido": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/16"
+          },
+          "sucesos": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/16/sucesos"
+          }
+        }
+      },
+      {
+        "idLocal": "NIORT(FRA)",
+        "idVisitante": "ATLMAD(ESP)",
+        "timestamp": 1588791745403,
+        "_links": {
+          "self": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/17"
+          },
+          "partido": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/17"
+          },
+          "sucesos": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/17/sucesos"
+          }
+        }
+      },
+      {
+        "idLocal": "RBLEIP(ALE)",
+        "idVisitante": "CHATOR(FRA)",
+        "timestamp": 1588791746400,
+        "_links": {
+          "self": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/18"
+          },
+          "partido": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/18"
+          },
+          "sucesos": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/18/sucesos"
+          }
+        }
+      },
+      {
+        "idLocal": "MILAN(ITA)",
+        "idVisitante": "LORCA(ESP)",
+        "timestamp": 1588791747392,
+        "_links": {
+          "self": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/19"
+          },
+          "partido": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/19"
+          },
+          "sucesos": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/19/sucesos"
+          }
+        }
+      },
+      {
+        "idLocal": "OSTEND(BEL)",
+        "idVisitante": "LEHAVR(FRA)",
+        "timestamp": 1588791748444,
+        "_links": {
+          "self": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/20"
+          },
+          "partido": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/20"
+          },
+          "sucesos": {
+            "href": "http://pruebaapi1-lonchezas.b4a.run/api/partidos/20/sucesos"
+          }
+        }
+      }
+    ]
+  }
+}

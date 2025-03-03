@@ -10,7 +10,7 @@ export default {
   <div class="app-container">
     <NavBar></NavBar>
     <main>
-      <h1>RESTO DE LA INTERFAZ</h1>
+      <router-view></router-view>
     </main>
     <footer>
       <Footer></Footer>
