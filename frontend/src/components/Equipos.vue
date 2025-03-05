@@ -45,27 +45,44 @@ export default {
     <h1 class="titulo p-4">EQUIPOS</h1>
      <!-- <h1 :class="{'titulo-rojo':equipos.length > 19, 'titulo-azul':equipos.length <=19, 'p-4':true}">EQUIPOS</h1> -->
     <!-- <h1 :title="'Total de equipos' + equipos.length">EQUIPOS</h1> -->
-     <ul :style="{fontSize: equipos.length < 30 ? '14px' : '40px'}">
-      <li v-for="equipo in equipos" :key="equipo.id">
-        <a :href="equipo._links.self.href">{{ equipo.nombre }}</a>
-      </li>
-      <button type="button" class="btn btn-info" @click="mostrarTotalEquipos = !mostrarTotalEquipos">Número de equipos</button>
-      <span v-if="mostrarTotalEquipos"> {{ equipos.length }} </span>
-    </ul>
-    <button type="button" class="btn btn-success" @click="calcularEnfrentamiento()">Calcular enfrentamiento</button>
-    <span v-if="enfrentamiento">{{ enfrentamiento }}</span>
-  </div>
-  <h2>{{ estadoEnfrentamiento }}</h2>
-  <h2>{{ avisoPartidos }}</h2>
+    <!-- <ul :style="{fontSize: equipos.length < 30 ? '14px' : '40px'}"> -->
+    <div class="container text-center mt-3">
+      <div class="row">
+        <div v-for="equipo in equipos" :key="equipo.id" class="col-md-3 mb-3">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">{{ equipo.nombre }}</h5>
+              <a :href="equipo._links.self.href" class="btn btn-primary btn-sm">Ver más</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <div v-if="equipos.length > 5">
-    <h2>Más de 5 equipos</h2>
-  </div>
-  <div v-else-if="equipos.length < 5">
-    <h2>Menos de 5 equipos</h2>
-  </div>
-  <div v-else>
-    <h2>No hay equipos</h2>
+    <div>
+      <button type="button" class="btn btn-info me-3 mb-3" @click="mostrarTotalEquipos = !mostrarTotalEquipos">
+        Número de equipos
+      </button>
+      <span v-if="mostrarTotalEquipos">{{ equipos.length }}</span>
+    </div>
+
+    <div>
+      <button type="button" class="btn btn-success me-3" @click="calcularEnfrentamiento()">Calcular Enfrentamiento</button>
+      <span v-if="enfrentamiento">{{ enfrentamiento }}</span>
+    </div>
+
+    <div v-if="equipos.length > 5">
+      <h2>Más de 5 equipos</h2>
+    </div>
+    <div v-else-if="equipos.length < 5">
+      <h2>Menos de 5 equipos</h2>
+    </div>
+    <div v-else>
+      <h2>No hay equipos</h2>
+    </div>
+
+    <h2>{{ estadoEnfrentamiento }}</h2>
+    <h2>{{ avisoPartidos }}</h2>
   </div>
 </template>
 
@@ -82,5 +99,14 @@ export default {
 
 .titulo-azul {
   color:blue;
+}
+
+.card {
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 </style>
