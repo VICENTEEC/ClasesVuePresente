@@ -8,16 +8,23 @@ export default {
       mostrarTotalEquipos: false,
       mostrarEquipos: false,
       enfrentamiento: "",
-      numPartidos: 0
+      numPartidos: 0,
     };
   },
   computed: {
     estadoEnfrentamiento() {
-      return this.enfrentamiento.includes('Real Madrid') ? 'El Real Madrid juega hoy' :'Hoy no juega'
+      return this.enfrentamiento.includes("Real Madrid") ? "El Real Madrid juega hoy" : "Hoy no juega";
     },
     avisoPartidos() {
-      return this.numPartidos > 5 ? `Has generado ${this.numPartidos}` : `No has generado más de 5 partidos`
-    }
+      return this.numPartidos > 5 ? `Has generado ${this.numPartidos}` : `No has generado más de 5 partidos`;
+    },
+  },
+  watch: {
+    numPartidos(nuevoValor) {
+      if (nuevoValor === 15) {
+        this.$router.push({ name: "home" });
+      }
+    },
   },
   methods: {
     calcularEnfrentamiento() {
@@ -43,7 +50,7 @@ export default {
 <template>
   <div class="container">
     <h1 class="titulo p-4">EQUIPOS</h1>
-     <!-- <h1 :class="{'titulo-rojo':equipos.length > 19, 'titulo-azul':equipos.length <=19, 'p-4':true}">EQUIPOS</h1> -->
+    <!-- <h1 :class="{'titulo-rojo':equipos.length > 19, 'titulo-azul':equipos.length <=19, 'p-4':true}">EQUIPOS</h1> -->
     <!-- <h1 :title="'Total de equipos' + equipos.length">EQUIPOS</h1> -->
     <!-- <ul :style="{fontSize: equipos.length < 30 ? '14px' : '40px'}"> -->
     <div class="container text-center mt-3">
@@ -60,9 +67,7 @@ export default {
     </div>
 
     <div>
-      <button type="button" class="btn btn-info me-3 mb-3" @click="mostrarTotalEquipos = !mostrarTotalEquipos">
-        Número de equipos
-      </button>
+      <button type="button" class="btn btn-info me-3 mb-3" @click="mostrarTotalEquipos = !mostrarTotalEquipos">Número de equipos</button>
       <span v-if="mostrarTotalEquipos">{{ equipos.length }}</span>
     </div>
 
@@ -94,11 +99,11 @@ export default {
 }
 
 .titulo-rojo {
-  color:red;
+  color: red;
 }
 
 .titulo-azul {
-  color:blue;
+  color: blue;
 }
 
 .card {
