@@ -11,7 +11,7 @@
             <router-link class="nav-link" to="/equipos">Equipos</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/eventos">Eventos</router-link>
+            <router-link class="nav-link" to="/listaeventos">Lista Eventos</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/entradas">Entradas</router-link>

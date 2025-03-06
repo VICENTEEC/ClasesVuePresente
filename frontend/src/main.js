@@ -11,20 +11,20 @@ import * as bootstrap from 'bootstrap'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faUser, faMobileScreen } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faMobileScreen, faFutbol } from '@fortawesome/free-solid-svg-icons'
 import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
-library.add(faUser, faMobileScreen, faInstagram, faFacebook)
+library.add(faUser, faMobileScreen, faInstagram, faFacebook, faFutbol)
 
 const NotFound = () => import('@/components/NotFound.vue')
 const Equipos = () => import('@/components/Equipos.vue')
-const Eventos = () => import('@/components/Eventos.vue')
+const ListaEventos = () => import('@/components/ListaEventos.vue')
 const Entradas = () => import('@/components/Entradas.vue')
 
 const routes = [
     { path: '/', redirect: '/home' },
     { path: '/home', component: Home, name: 'home'},
     { path: '/equipos', component: Equipos, name: 'equipos'},
-    { path: '/eventos', component: Eventos, name: 'eventos'},
+    { path: '/listaeventos', component: ListaEventos, name: 'listaeventos'},
     { path: '/entradas', component: Entradas, name: 'entradas'},
     { path: '/:pathMatch(.*)*', component: NotFound, name: 'notfound'}
 ]
