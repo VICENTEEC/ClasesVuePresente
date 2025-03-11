@@ -1,20 +1,23 @@
 <script>
 export default {
   props: ["partidosss"],
-  data() {
-    return {
-      golesLocal: 0,
-      golesVisitante: 0,
-    };
-  },
+  emits: ['incrementar-goles-local', 'incrementar-goles-visitante'],
+  // data() {
+  //   return {
+  //     golesLocal: 0,
+  //     golesVisitante: 0,
+  //   };
+  // },
   methods: {
     incrementarGolesLocal() {
-      this.golesLocal++;
-      console.log(this.golesLocal);
+      // this.golesLocal++;
+      // console.log(this.golesLocal);
+      this.$emit('incrementar-goles-local', this.partidosss._links.self.href)
     },
     incrementarGolesVisitante() {
-      this.golesVisitante++;
-      console.log(this.golesVisitante);
+      // this.golesVisitante++;
+      // console.log(this.golesVisitante);
+      this.$emit('incrementar-goles-visitante', this.partidosss._links.self.href)
     },
   },
 };
@@ -32,7 +35,7 @@ export default {
       <span @click="incrementarGolesVisitante">
         <font-awesome-icon :icon="['fas', 'futbol']" size="xl" style="color: #e01b24" />
       </span>
-      <h1>{{ golesLocal }} | {{ golesVisitante }}</h1>
+      <h1>{{ partidosss.golesLocal }} | {{ partidosss.golesVisitante }}</h1>
     </div>
     <div class="card-footer text-body-secondary">2 days ago</div>
   </div>

@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from '@/App.vue'
 import Home from '@/components/Home.vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
+import { createPinia } from 'pinia'
 
 // Import our custom CSS
 import '@/scss/styles.scss'
@@ -34,9 +35,11 @@ const router = createRouter({
     routes,
 })
 
+const pinia = createPinia()
 
 
 const app = createApp(App)
 app.use(router)
+app.use(pinia)
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.mount('#app')
