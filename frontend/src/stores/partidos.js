@@ -21,7 +21,16 @@ export const usePartidosStore = defineStore('partidos', {
         this.partidos[partidoIndex].golesLocal += golesLocal
         this.partidos[partidoIndex].golesVisitante += golesVisitante
       }
+    },
+    reiniciarGoles(partidoId) {
+      console.log("Estoy en el store en reiniciar goles")
+      const partidoIndex = this.partidos.findIndex(p => p._links.self.href === partidoId)
+      if (partidoIndex !== -1) {
+        this.partidos[partidoIndex].golesLocal = 0
+        this.partidos[partidoIndex].golesVisitante = 0
+      }
     }
+
 
 
   },

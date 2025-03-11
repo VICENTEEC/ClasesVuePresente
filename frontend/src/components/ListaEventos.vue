@@ -18,7 +18,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(usePartidosStore, ['actualizarGoles']),
+    ...mapActions(usePartidosStore, ['actualizarGoles', 'reiniciarGoles']),
 
     incrementarGolesLocal(partidoHref) {
       console.log(partidoHref)
@@ -27,6 +27,10 @@ export default {
     incrementarGolesVisitante(partidoHref) {
       console.log(partidoHref)
       this.actualizarGoles(partidoHref, 0, 1)
+    },
+    resetearGoles(partidoHref) {
+      console.log("Estoy en ListaEventos metodo resetearGoles")
+      this.reiniciarGoles(partidoHref)
     }
   }
 };
@@ -40,6 +44,7 @@ export default {
           <Evento :partidosss="partido"
           @incrementar-goles-local = "incrementarGolesLocal"
           @incrementar-goles-visitante = "incrementarGolesVisitante"
+          @resetear-goles = "resetearGoles"
           ></Evento>
       </div>
     </ul>
