@@ -1,7 +1,7 @@
 <script>
 export default {
   props: ["partidosss"],
-  emits: ["incrementar-goles-local", "incrementar-goles-visitante", "resetear-goles"],
+  emits: ["incrementar-goles-local", "incrementar-goles-visitante", "resetear-goles", "eliminarPartido"],
   // data() {
   //   return {
   //     golesLocal: 0,
@@ -43,7 +43,8 @@ export default {
             <h3>{{ partidosss.idLocal }} VS {{ partidosss.idVisitante }}</h3>
           </div>
           <div class="col-4 icono-papelera">
-            <font-awesome-icon :icon="['fas', 'trash']" class= "me-3" size="xl" />
+            <font-awesome-icon :icon="['fas', 'trash']" class= "me-3" size="xl" 
+            @click="$emit('eliminarPartido', partidosss._links.self.href)"/>
             <font-awesome-icon :icon="['fas', 'pen-to-square']" size="xl" />
       </div>
     </div>

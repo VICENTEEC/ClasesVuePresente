@@ -1,11 +1,12 @@
 <script>
 // import partidos from "@/assets/partidos.json"
 import Evento from "@/components/Evento.vue"
+import Formulario from "@/components/Formulario.vue"
 import { mapState, mapActions } from 'pinia'
 import { usePartidosStore } from '@/stores/partidos'
 
 export default {
-  components: { Evento },
+  components: { Evento, Formulario },
 
   // data() {
   //   return {
@@ -18,7 +19,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(usePartidosStore, ['actualizarGoles', 'reiniciarGoles']),
+    ...mapActions(usePartidosStore, ['actualizarGoles', 'reiniciarGoles','suprimirPartido']),
 
     incrementarGolesLocal(partidoHref) {
       console.log(partidoHref)
@@ -31,6 +32,10 @@ export default {
     resetearGoles(partidoHref) {
       console.log("Estoy en ListaEventos metodo resetearGoles")
       this.reiniciarGoles(partidoHref)
+    },
+    borrarPartido(partidoHref) {
+      console.log("componente padre. Se va a leiminar el partido: ", partidoHref)
+      this.suprimirPartido(partidoHref)
     }
   }
 };
@@ -39,17 +44,42 @@ export default {
 <template>
   <div class="container">
     <h1 class="titulo p-4">LISTA EVENTOS</h1>
+    <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Añadir
+    </button>    
     <ul>
       <div v-for="partido in partidos" :key="partido._links.self.href" class="mb-3">
           <Evento :partidosss="partido"
           @incrementar-goles-local = "incrementarGolesLocal"
           @incrementar-goles-visitante = "incrementarGolesVisitante"
           @resetear-goles = "resetearGoles"
+          @eliminarPartido = "borrarPartido"
           ></Evento>
       </div>
     </ul>
   </div>
-  
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button>
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <Formulario></Formulario>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
 </template>
 <style scoped>
 .container {
