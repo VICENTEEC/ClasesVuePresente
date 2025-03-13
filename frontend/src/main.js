@@ -12,9 +12,9 @@ import * as bootstrap from 'bootstrap'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faUser, faMobileScreen, faFutbol, faArrowsSpin } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faMobileScreen, faFutbol, faArrowsSpin, faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
-library.add(faUser, faMobileScreen, faInstagram, faFacebook, faFutbol, faArrowsSpin)
+library.add(faUser, faMobileScreen, faInstagram, faFacebook, faFutbol, faArrowsSpin, faTrash, faPenToSquare)
 
 const NotFound = () => import('@/components/NotFound.vue')
 const Equipos = () => import('@/components/Equipos.vue')
