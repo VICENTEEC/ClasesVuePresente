@@ -1,7 +1,7 @@
 <script>
 export default {
   props: ["partidosss"],
-  emits: ["incrementar-goles-local", "incrementar-goles-visitante", "resetear-goles", "eliminarPartido"],
+  emits: ["incrementar-goles-local", "incrementar-goles-visitante", "resetear-goles", "eliminarPartido", "editar-partido"],
   // data() {
   //   return {
   //     golesLocal: 0,
@@ -23,6 +23,9 @@ export default {
       console.log("click ok");
       this.$emit("resetear-goles", this.partidosss._links.self.href);
     },
+    editarPartido() {
+      this.$emit('editar-partido', this.partidosss)
+    }
   },
 };
 </script>
@@ -45,7 +48,8 @@ export default {
           <div class="col-4 icono-papelera">
             <font-awesome-icon :icon="['fas', 'trash']" class= "me-3" size="xl" 
             @click="$emit('eliminarPartido', partidosss._links.self.href)"/>
-            <font-awesome-icon :icon="['fas', 'pen-to-square']" size="xl" />
+            <font-awesome-icon :icon="['fas', 'pen-to-square']" size="xl" 
+            @click="editarPartido"/>
       </div>
     </div>
   </div>

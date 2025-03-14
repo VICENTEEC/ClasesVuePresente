@@ -4,6 +4,7 @@ import Evento from "@/components/Evento.vue"
 import Formulario from "@/components/Formulario.vue"
 import { mapState, mapActions } from 'pinia'
 import { usePartidosStore } from '@/stores/partidos'
+import { Modal } from 'bootstrap'
 
 export default {
   components: { Evento, Formulario },
@@ -14,6 +15,12 @@ export default {
   //   };
   // },
 
+  data() {
+    return {
+      partidoAEditar: '',
+      editando: false
+    }
+  },
   computed: {
     ...mapState(usePartidosStore, ['partidos'])
   },
@@ -40,6 +47,14 @@ export default {
     enviarFormulario(partido) {
       console.log("Partido creado recibido en ListaEventos.vue", partido)
       this.anadirPartido(partido)
+    },
+    editarPartido(partido){
+      console.log("Estoy en componente ListaEventos.vue, voy a editar: ", partido)
+      this.partidoAEditar = partido,
+      this.editando = true
+      let modalElement = this.$refs.formularioModal
+      let bsModal = new Modal(modalElement)
+      bsModal.show()
     }
   }
 };
@@ -58,6 +73,7 @@ export default {
           @incrementar-goles-visitante = "incrementarGolesVisitante"
           @resetear-goles = "resetearGoles"
           @eliminarPartido = "borrarPartido"
+          @editar-partido = "editarPartido"
           ></Evento>
       </div>
     </ul>
@@ -67,7 +83,7 @@ export default {
   Launch static backdrop modal
 </button>
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="staticBackdrop" ref = "formularioModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
