@@ -38,6 +38,27 @@ export const usePartidosStore = defineStore('partidos', {
       if(partidoIndex !== -1) {
         this.partidos.splice(partidoIndex, 1)
       }
+    },
+    anadirPartido(nuevoPartido) {
+      console.log("En el store recibo este partido: ", nuevoPartido)
+
+      const nuevoHref = `http://pruebaapi1-lonchezas.b4a.run/api/partidos/${this.partidos.length +1}`
+      const partidoConLinks = {
+        ...nuevoPartido,
+        _links: {
+          self: {
+            href: nuevoHref
+          },
+          partido : {
+            href: nuevoHref
+          },
+          sucesos: {
+            href:`${nuevoHref}/sucesos`
+          }
+        }
+      }
+
+      this.partidos.unshift(partidoConLinks)
     }
   },
 })
