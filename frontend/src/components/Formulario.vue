@@ -1,6 +1,7 @@
 <script>
 export default {
-  emits: ['formulario-relleno'],
+  emits: ['formulario-relleno', 'formulario-actualizado'],
+  props: ['partido', 'editando'],
   data() {
     return {
       idLocal: '',
@@ -10,8 +11,24 @@ export default {
       timestamp: ''
     }
   },
+
+  watch : {
+    partido: {
+      immediate: true,
+      handler(newVal) {
+        if(newVal) {
+          this.idLocal = newVal.idLocal,
+          this.idVisitante = newVal.idVisitante,
+          this.golesLocal = newVal.golesLocal,
+          this.golesVisitante = newVal.golesVisitante,
+          this.timestamp = newVal.timestamp
+        }
+      }
+    }
+  },
+
   methods: {
-    rellenarFormulario() {
+    enviarFormulario() {
       const nuevoObjetoPartido = {
         idLocal: this.idLocal,
         idVisitante: this.idVisitante,
@@ -19,14 +36,23 @@ export default {
         golesVisitante:this.golesVisitante,
         timestamp:this.timestamp
       }
-      this.$emit('formulario-relleno', nuevoObjetoPartido)
+      // this.$emit('formulario-relleno', nuevoObjetoPartido)
+      if(this.editando && this.partido._links.self.href) {
+        nuevoObjetoPartido.url = this.partido._links.self.href
+      }
+
+      if(this.editando) {
+        this.$emit('formulario-actualizado' ,nuevoObjetoPartido)
+      } else {
+        this.$emit('formulario-relleno', nuevoObjetoPartido)
+      }
     }
   }
 }
 
 </script>
 <template>
-  <form @submit.prevent="rellenarFormulario" class="row g-3 needs-validation" novalidate>
+  <form @submit.prevent="enviarFormulario" class="row g-3 needs-validation" novalidate>
     <div class="col-md-6">
       <label for="idLocal" class="form-label">Equipo Local</label>
       <input type="text" class="form-control" id="idLocal" v-model="idLocal" required />

@@ -59,6 +59,16 @@ export const usePartidosStore = defineStore('partidos', {
       }
 
       this.partidos.unshift(partidoConLinks)
+    },
+    actualizarPartido(partidoParaActualizar) {
+      const index = this.partidos.findIndex(p => p._links.self.href === partidoParaActualizar.url)
+      if(index !== -1) {
+        this.partidos[index].idLocal = partidoParaActualizar.idLocal
+        this.partidos[index].idVisitante = partidoParaActualizar.idVisitante
+        this.partidos[index].golesLocal = partidoParaActualizar.golesLocal
+        this.partidos[index].golesVisitante = partidoParaActualizar.golesVisitante
+        this.partidos[index].timestamp = partidoParaActualizar.timestamp
+      }
     }
   },
 })

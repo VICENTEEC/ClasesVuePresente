@@ -26,7 +26,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(usePartidosStore, ['actualizarGoles', 'reiniciarGoles','suprimirPartido', 'anadirPartido']),
+    ...mapActions(usePartidosStore, ['actualizarGoles', 'reiniciarGoles','suprimirPartido', 'anadirPartido', 'actualizarPartido']),
 
     incrementarGolesLocal(partidoHref) {
       console.log(partidoHref)
@@ -47,6 +47,8 @@ export default {
     enviarFormulario(partido) {
       console.log("Partido creado recibido en ListaEventos.vue", partido)
       this.anadirPartido(partido)
+      this.editando = false,
+      this.partidoAEditar = null
     },
     editarPartido(partido){
       console.log("Estoy en componente ListaEventos.vue, voy a editar: ", partido)
@@ -55,6 +57,23 @@ export default {
       let modalElement = this.$refs.formularioModal
       let bsModal = new Modal(modalElement)
       bsModal.show()
+    },
+    actualizarFormulario (partidoActualizado) {
+      console.log("partido a actualizar: ", partidoActualizado)
+      this.actualizarPartido(partidoActualizado)
+      this.editando = false,
+      this.partidoAEditar = null
+    },
+    abrirModalNuevoPartido() {
+      this.partidoAEditar = { idLocal:'', idVisitante: '', golesLocal: 0, golesVisitante: 0, timestamp:''}
+      this.editando= false
+      let modalElement = this.$refs.formularioModal
+      let bsModal = new Modal(modalElement)
+      bsModal.show()
+    },
+    resetarPartidoyEditar(){
+      this.editando = false,
+      this.partidoAEditar = null
     }
   }
 };
@@ -63,7 +82,8 @@ export default {
 <template>
   <div class="container">
     <h1 class="titulo p-4">LISTA EVENTOS</h1>
-    <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <!-- <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> -->
+      <button type="button" class="btn btn-success mb-3" @click="abrirModalNuevoPartido">
       Añadir
     </button>    
     <ul>
@@ -88,16 +108,16 @@ export default {
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="resetarPartidoyEditar"></button>
       </div>
       <div class="modal-body">
         <Formulario
-        @formulario-relleno="enviarFormulario"></Formulario>
+        :partido="partidoAEditar"
+        :editando="editando"
+        @formulario-actualizado = actualizarFormulario
+        @formulario-relleno=enviarFormulario></Formulario>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
+    
     </div>
   </div>
 </div>
