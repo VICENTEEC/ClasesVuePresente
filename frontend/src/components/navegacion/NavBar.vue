@@ -1,3 +1,28 @@
+<script>
+import { useAuthStore } from "@/stores/auth";
+import { mapState, mapActions } from "pinia";
+
+export default {
+  computed: {
+    ...mapState(useAuthStore, ["tipoUsuario", "esAdmin"]),
+
+    isAdminModel: {
+      get() {
+        return this.esAdmin;
+      },
+      set() {
+        this.cambiarNivel();
+      },
+    },
+  },
+  methods: {
+    ...mapActions(useAuthStore, ['cambiarNivel'])
+  }
+
+
+};
+</script>
+
 <template>
   <nav class="navbar navbar-expand-lg bg-yellowgreen">
     <div class="container-fluid">
@@ -16,13 +41,21 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/entradas">Entradas</router-link>
           </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/listaeventosAPI">Lista Eventos API</router-link>
+          </li>
         </ul>
+      </div>
+
+      <div class="form-check form-switch form-check-reverse">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" v-model="isAdminModel"/>
+        <label class="form-check-label" for="flexSwitchCheckDefault"> {{ tipoUsuario }} </label>
       </div>
     </div>
   </nav>
 </template>
 <style scoped>
-.bg-yellowgreen{
+.bg-yellowgreen {
   background-color: yellowgreen;
 }
 </style>

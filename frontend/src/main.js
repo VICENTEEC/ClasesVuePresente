@@ -19,6 +19,7 @@ library.add(faUser, faMobileScreen, faInstagram, faFacebook, faFutbol, faArrowsS
 const NotFound = () => import('@/components/NotFound.vue')
 const Equipos = () => import('@/components/Equipos.vue')
 const ListaEventos = () => import('@/components/ListaEventos.vue')
+const ListaEventosAPI = () => import('@/components/ListaEventosAPI.vue')
 const Entradas = () => import('@/components/Entradas.vue')
 
 const routes = [
@@ -26,6 +27,7 @@ const routes = [
     { path: '/home', component: Home, name: 'home'},
     { path: '/equipos', component: Equipos, name: 'equipos'},
     { path: '/listaeventos', component: ListaEventos, name: 'listaeventos'},
+    { path: '/listaeventosapi', component: ListaEventosAPI, name: 'listaeventosapi'},
     { path: '/entradas', component: Entradas, name: 'entradas'},
     { path: '/:pathMatch(.*)*', component: NotFound, name: 'notfound'}
 ]
@@ -35,8 +37,16 @@ const router = createRouter({
     routes,
 })
 
-const pinia = createPinia()
+import { useAuthStore } from '@/stores/auth'
+router.beforeEach(async (to) => {
+    const auth = useAuthStore()
+    if(!auth.esAdmin && (to.name === 'listaeventosapi' || to.name === 'listaeventos' || to.name === 'equipos' || to.name === 'entradas')){
+        return { name: 'home'}
+    }
+})
 
+
+const pinia = createPinia()
 
 const app = createApp(App)
 app.use(router)
