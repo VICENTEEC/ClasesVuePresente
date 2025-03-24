@@ -1,10 +1,21 @@
 <script>
-import NavBar from "@/components/navegacion/NavBar.vue";
-import Footer from "@/components/navegacion/Footer.vue";
+import NavBar from "@/components/navegacion/NavBar.vue"
+import Footer from "@/components/navegacion/Footer.vue"
+import { mapState, mapActions } from 'pinia'
+import { usePartidosAPIStore } from '@/stores/partidosAPI'
 
 export default {
   components: { NavBar, Footer },
-};
+  computed: {
+    ...mapState(usePartidosAPIStore, ['partidos'])
+  },
+  methods: {
+    ...mapActions(usePartidosAPIStore, ['cargarPartidos'])
+  },
+  mounted() {
+    this.cargarPartidos()
+  }
+}
 </script>
 <template>
   <div class="app-container">
