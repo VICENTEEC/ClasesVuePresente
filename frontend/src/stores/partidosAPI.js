@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import { getPartidos } from "@/stores/api-service.js"
+import { getPartidos, postPartidos } from "@/stores/api-service.js"
 
 export const usePartidosAPIStore = defineStore("partidosAPI", {
   state: () => ({
@@ -24,6 +24,20 @@ export const usePartidosAPIStore = defineStore("partidosAPI", {
         this.partidosCargados = true
         console.log("En el store: ", this.partidos)
       })
-    }
+    },
+
+    async anadirPartido(nuevoPartido) {
+      console.log("En el store, lo que recibe: ", nuevoPartido)
+      try {
+        const responsePartidos = await postPartidos(nuevoPartido)
+        console.log("La respuesta de la API es: ", responsePartidos)
+        if (responsePartidos.status === 200) {
+          const partidoAgregado = { ...nuevoPartido, _links: responsePartidos.data._links }
+          this.partidos.unshift(partidoAgregado)
+        }
+      } catch (error) {
+        console.error("Error: ", error)
+      }
+    },
   }
 })

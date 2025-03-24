@@ -20,3 +20,7 @@ function llamadaAPI(method, body, path) {
 export function getPartidos() {
   return llamadaAPI("get", null, API_PARTIDOS)
 }
+
+export function postPartidos(data) {
+  return llamadaAPI("post", data, API_PARTIDOS)
+}
