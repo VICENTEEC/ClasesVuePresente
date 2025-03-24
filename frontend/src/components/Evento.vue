@@ -54,12 +54,12 @@ export default {
     </div>
   </div>
 
-
+<div>
       <span @click="resetearGoles">
         <font-awesome-icon :icon="['fas', 'arrows-spin']" size="xl" />
       </span>
-
-      <p>Fecha del partido: {{ new Date(partidosss.timestamp).toLocaleDateString() }}</p>
+    </div>
+      
       <span @click="incrementarGolesLocal">
         <font-awesome-icon :icon="['fas', 'futbol']" class="me-3" size="xl" />
       </span>

@@ -67,7 +67,6 @@ export const usePartidosStore = defineStore('partidos', {
         this.partidos[index].idVisitante = partidoParaActualizar.idVisitante
         this.partidos[index].golesLocal = partidoParaActualizar.golesLocal
         this.partidos[index].golesVisitante = partidoParaActualizar.golesVisitante
-        this.partidos[index].timestamp = partidoParaActualizar.timestamp
       }
     }
   },

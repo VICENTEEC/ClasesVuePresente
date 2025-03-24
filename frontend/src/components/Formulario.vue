@@ -8,7 +8,6 @@ export default {
       idVisitante: '',
       golesLocal: null,
       golesVisitante:null,
-      timestamp: ''
     }
   },
 
@@ -20,8 +19,7 @@ export default {
           this.idLocal = newVal.idLocal,
           this.idVisitante = newVal.idVisitante,
           this.golesLocal = newVal.golesLocal,
-          this.golesVisitante = newVal.golesVisitante,
-          this.timestamp = newVal.timestamp
+          this.golesVisitante = newVal.golesVisitante
         }
       }
     }
@@ -34,7 +32,6 @@ export default {
         idVisitante: this.idVisitante,
         golesLocal: this.golesLocal,
         golesVisitante:this.golesVisitante,
-        timestamp:this.timestamp
       }
       // this.$emit('formulario-relleno', nuevoObjetoPartido)
       if(this.editando && this.partido._links.self.href) {
@@ -71,11 +68,6 @@ export default {
     <div class="col-md-6">
       <label for="golesVisitante" class="form-label">Goles Visitante</label>
       <input type="number" class="form-control" id="golesVisitante" v-model="golesVisitante" required />
-      <div class="valid-feedback">Looks good!</div>
-    </div>
-    <div class="col-md-6">
-      <label for="timestamp" class="form-label">Fecha-Hora</label>
-      <input type="datetime-local" class="form-control" id="timestamp" v-model="timestamp" required />
       <div class="valid-feedback">Looks good!</div>
     </div>
     <div class="col-12">

@@ -65,7 +65,7 @@ export default {
       this.partidoAEditar = null
     },
     abrirModalNuevoPartido() {
-      this.partidoAEditar = { idLocal:'', idVisitante: '', golesLocal: 0, golesVisitante: 0, timestamp:''}
+      this.partidoAEditar = { idLocal:'', idVisitante: '', golesLocal: 0, golesVisitante: 0}
       this.editando= false
       let modalElement = this.$refs.formularioModal
       let bsModal = new Modal(modalElement)
