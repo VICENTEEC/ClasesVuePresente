@@ -3,6 +3,8 @@ import App from '@/App.vue'
 import Home from '@/components/Home.vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { createPinia } from 'pinia'
+import PrimeVue from 'primevue/config'
+import Aura from '@primeuix/themes/aura';
 
 // Import our custom CSS
 import '@/scss/styles.scss'
@@ -51,5 +53,10 @@ const pinia = createPinia()
 const app = createApp(App)
 app.use(router)
 app.use(pinia)
+app.use(PrimeVue, {
+    theme: {
+        preset: Aura
+    }
+});
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.mount('#app')

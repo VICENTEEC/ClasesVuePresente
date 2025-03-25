@@ -4,6 +4,7 @@ import { getPartidos, postPartidos, deleteEntidad, putEntidad } from "@/stores/a
 export const usePartidosAPIStore = defineStore("partidosAPI", {
   state: () => ({
     partidos: [],
+    partidosCargados: false,
     // partidos: partidosData._embedded.partidos.map((partido) => ({
     //   ...partido,
     //   golesLocal: 0,

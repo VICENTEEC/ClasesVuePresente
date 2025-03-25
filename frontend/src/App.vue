@@ -1,27 +1,31 @@
 <script>
-import NavBar from "@/components/navegacion/NavBar.vue"
-import Footer from "@/components/navegacion/Footer.vue"
-import { mapState, mapActions } from 'pinia'
-import { usePartidosAPIStore } from '@/stores/partidosAPI'
+import NavBar from "@/components/navegacion/NavBar.vue";
+import Footer from "@/components/navegacion/Footer.vue";
+import { mapState, mapActions } from "pinia";
+import { usePartidosAPIStore } from "@/stores/partidosAPI";
+import ProgressSpinner from "primevue/progressspinner";
 
 export default {
-  components: { NavBar, Footer },
+  components: { NavBar, Footer, ProgressSpinner },
   computed: {
-    ...mapState(usePartidosAPIStore, ['partidos'])
+    ...mapState(usePartidosAPIStore, ["partidosCargados", "partidos"]),
   },
   methods: {
-    ...mapActions(usePartidosAPIStore, ['cargarPartidos'])
+    ...mapActions(usePartidosAPIStore, ["cargarPartidos"]),
   },
   mounted() {
-    this.cargarPartidos()
-  }
-}
+    this.cargarPartidos();
+  },
+};
 </script>
 <template>
   <div class="app-container">
     <NavBar></NavBar>
     <main>
-      <router-view></router-view>
+      <div v-if="!partidosCargados" class="spinner-container">
+        <ProgressSpinner />
+      </div>
+      <router-view v-else></router-view>
     </main>
     <footer>
       <Footer></Footer>
@@ -37,5 +41,14 @@ export default {
 }
 main {
   flex: 1;
+}
+.spinner-container {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 </style>
