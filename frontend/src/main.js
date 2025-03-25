@@ -4,7 +4,9 @@ import Home from '@/components/Home.vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { createPinia } from 'pinia'
 import PrimeVue from 'primevue/config'
-import Aura from '@primeuix/themes/aura';
+import Aura from '@primeuix/themes/aura'
+import ConfirmationService from 'primevue/confirmationservice'
+ import ToastService from 'primevue/toastservice'
 
 // Import our custom CSS
 import '@/scss/styles.scss'
@@ -58,5 +60,7 @@ app.use(PrimeVue, {
         preset: Aura
     }
 });
+app.use(ConfirmationService)
+app.use(ToastService)
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.mount('#app')
