@@ -8,6 +8,9 @@ import Aura from '@primeuix/themes/aura'
 import ConfirmationService from 'primevue/confirmationservice'
  import ToastService from 'primevue/toastservice'
 
+import 'primeicons/primeicons.css'
+
+
 // Import our custom CSS
 import '@/scss/styles.scss'
 

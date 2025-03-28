@@ -101,10 +101,63 @@ export default {
     },
 
     enviarFormulario(partido) {
-      console.log("Partido creado recibido en ListaEventos.vue", partido)
-      this.anadirPartido(partido)
-      this.editando = false,
-      this.partidoAEditar = null
+      this.$confirm.require({
+        message: '¿Deseas añadir este nuevo partido?',
+        header: 'Confirmación',
+        icon: 'pi pi-question-circle',
+        acceptLabel: 'Sí, añadir',
+        rejectLabel: 'Cancelar',
+        acceptClass: 'p-button-success',
+        rejectClass: 'p-button-secondary p-button-outlined',
+
+        accept: async () => {
+          this.cargando = true
+          try {
+            const totalAntes = this.partidos.length
+            await this.anadirPartido(partido)
+
+            const totalDespues = this.partidos.length
+            const partidoAgregado = totalDespues > totalAntes
+
+            if (partidoAgregado) {
+              this.$toast.add({
+              severity: 'success',
+              summary: 'Añadido',
+              detail: 'Partido añadido correctamente',
+              life: 3000,
+              })
+
+          } else {
+            this.$toast.add({
+              severity: 'error',
+              summary: 'Error',
+              detail: 'No se pudo añadir el partido',
+              life: 3000,
+            })
+          }
+        } catch (error) {
+          this.$toast.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Hubo un problema al añadir el partido',
+            life: 3000,
+        })
+        } finally {
+          this.cargando = false
+          this.editando = false
+          this.partidoAEditar = null
+        }
+      },
+
+      reject: () => {
+        this.$toast.add({
+          severity: 'info',
+          summary: 'Cancelado',
+          detail: 'Añadido cancelado',
+          life: 3000,
+        })
+      }
+      })
     },
     editarPartido(partido){
       console.log("Estoy en componente ListaEventos.vue, voy a editar: ", partido)
